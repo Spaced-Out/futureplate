@@ -8,7 +8,7 @@ import ThingStore from './things';
 import Cache from './cache';
 
 
-class IndexStore extends EventEmitter {
+export default class IndexStore extends EventEmitter {
   constructor() {
     super();
 
@@ -49,7 +49,4 @@ class IndexStore extends EventEmitter {
     return data;
   }
 }
-
-
-export default IndexStore;
 

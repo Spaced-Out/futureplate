@@ -2,13 +2,13 @@
 
 import React from 'react';
 
-import typeof Store from 'stores/index';
+import typeof IndexStore from 'src/stores/index';
 
 
 export default function(Component: Object): Function {
   const FluxComponent = (props, context) => {
     const { store } = context;
-    const fluxProps: { store: Store; ref?: Function } = {
+    const fluxProps: {store: IndexStore; ref?: Function} = {
       store,
     };
     if (props.fluxRef) {

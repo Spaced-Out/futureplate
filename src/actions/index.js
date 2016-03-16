@@ -1,4 +1,5 @@
 import * as api from 'src/utils/api';
+import parsers from 'src/api-parsers/index';
 
 
 export function getIds(store) {
@@ -9,6 +10,8 @@ export function getIds(store) {
   }
 
   const promise = api.get('things').then((response) => {
+    response = parsers['things'](response);
+
     store.stores.ids.setState(response.ids);
     store.cache.set(cacheKey);
   });
@@ -26,6 +29,8 @@ export function getThing(store, params) {
   }
 
   const promise = api.get(`things/${id}`).then((response) => {
+    response = parsers['things/<id>'](response);
+
     store.stores.things.setState({ [id]: response });
     store.cache.set(cacheKey);
   });
